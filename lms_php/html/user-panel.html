@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Panel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      color: #007BFF;
+    }
+    .book-list {
+      margin-top: 20px;
+    }
+    .book {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to the User Panel</h1>
+  <div class="book-list">
+    <h2>Available Books</h2>
+    <div id="books">
+      <!-- Books will be dynamically loaded here -->
+    </div>
+  </div>
+
+  <script>
+    const books = [
+      { id: 1, title: "Book One", author: "Author One", pdf: "book1.pdf", description: "A great book." },
+      { id: 2, title: "Book Two", author: "Author Two", pdf: "book2.pdf", description: "An interesting book." }
+    ];
+
+    const bookContainer = document.getElementById("books");
+    books.forEach(book => {
+      const bookElement = document.createElement("div");
+      bookElement.classList.add("book");
+      bookElement.innerHTML = `
+        <h3>${book.title}</h3>
+        <p>Author: ${book.author}</p>
+        <p>${book.description}</p>
+        <a href="${book.pdf}" download>Download PDF</a>
+        <a href="${book.pdf}" target="_blank">View PDF</a>
+      `;
+      bookContainer.appendChild(bookElement);
+    });
+  </script>
+</body>
+</html>

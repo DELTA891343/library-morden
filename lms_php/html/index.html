@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">LMS</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="register.html">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin_panel.php">Admin Panel</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section text-center">
+        <img src="images/book-hero.jpg" alt="Book Hero" class="img-fluid" style="height: 100px;" width="100%">
+        <h1 class="display-4">Welcome to the Library Management System</h1>
+        <p class="lead">Explore our collection of books and manage your library experience.</p>
+    </div>
+
+    <!-- Books Section -->
+    <div class="container mt-5">
+        <h2>Available Books</h2>
+        <div class="row" id="bookContainer">
+            <!-- Book items will be dynamically loaded here -->
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

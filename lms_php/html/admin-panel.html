@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      color: #007BFF;
+    }
+    form {
+      margin-top: 20px;
+    }
+    input, button {
+      padding: 10px;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+    .book-list {
+      margin-top: 20px;
+    }
+    .book {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to the Admin Panel</h1>
+  <form id="book-form">
+    <input type="text" id="title" placeholder="Book Title" required />
+    <input type="text" id="author" placeholder="Author" required />
+    <input type="text" id="description" placeholder="Description" required />
+    <input type="file" id="pdf" accept="application/pdf" required />
+    <button type="submit">Add Book</button>
+  </form>
+  <div class="book-list">
+    <h2>Existing Books</h2>
+    <div id="books">
+      <!-- Books will be dynamically loaded here -->
+    </div>
+  </div>
+
+  <script>
+    let books = [];
+    const bookContainer = document.getElementById("books");
+
+    const renderBooks = () => {
+      bookContainer.innerHTML = "";
+      books.forEach((book, index) => {
+        const bookElement = document.createElement("div");
+        bookElement.classList.add("book");
+        bookElement.innerHTML = `
+          <h3>${book.title}</h3>
+          <p>Author: ${book.author}</p>
+          <p>${book.description}</p>
+          <button onclick="deleteBook(${index})">Delete</button>
+        `;
+        bookContainer.appendChild(bookElement);
+      });
+    };
+
+    document.getElementById("book-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const title = document.getElementById("title").value;
+      const author = document.getElementById("author").value;
+      const description = document.getElementById("description").value;
+
+      books.push({ title, author, description });
+      renderBooks();
+      e.target.reset();
+    });
+
+    const deleteBook = (index) => {
+      books.splice(index, 1);
+      renderBooks();
+    };
+  </script>
+</body>
+</html>
